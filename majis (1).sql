@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Jan 31, 2016 at 09:21 AM
+-- Generation Time: Feb 22, 2016 at 01:17 PM
 -- Server version: 10.1.9-MariaDB
 -- PHP Version: 5.6.15
 
@@ -66,14 +66,66 @@ CREATE TABLE `facilities` (
 --
 
 INSERT INTO `facilities` (`id`, `region`, `lga`, `ward`, `facilities_no`, `facilities_name`, `facilities_type`, `com_name`, `com_contrib`, `source`) VALUES
-(1, 'Morogoro', 'Ulanga', 'Minepa', '', '', '', 'qwdqwd', 'Not pay', 'xxx'),
-(2, 'Dodoma', 'Iramba', 'itetem', '3456', 'rubi', 'water pump', 'hhh', '', ''),
-(3, 'mwanza', 'ilemela', 'keiko', '432', 'rungo', 'xx', 'hdhhsjsj', '', ''),
-(4, 'Choose region', '', '', '788', 'yuuu', 'xxx', 'jhgf', 'pay', 'xxx'),
-(5, 'Morogoro', 'Kilombero', 'Sanje', 'asxsax', 'xasx', 'xxx', 'asxasx', 'Not pay', 'xxx'),
-(6, 'Dar es salaam', 'Temeke', 'no records', 'z', 'zx', 'xxx', 'xasxa', 'pay', 'xxx'),
-(7, 'Choose region', '', '', '', '', 'xxx', '', 'pay', 'xxx'),
-(8, 'Dar es salaam', 'Temeke', 'no records', 'asxas', 'xsas', 'xxx', '', 'pay', 'xxx');
+(1, 'Mara', 'Serengeti', 'no records', '1', 'asxasx', 'type 1', 'vic asdvfgsdfbg', 'Not pay', 'dam'),
+(2, 'Kigoma', 'Kigoma Rural', 'no records', '2', 'sfgfg', 'type 1', 'dfbde44554', 'Not pay', 'rainwater harvesting'),
+(3, 'Morogoro', 'Morogoro Rural', 'Mvuha', '3', 'xasx', 'Choose facility type', '', 'Choose contribution', 'Choose source');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `facility_status`
+--
+
+CREATE TABLE `facility_status` (
+  `id` int(11) NOT NULL,
+  `f_no` varchar(255) DEFAULT NULL,
+  `problem_id` varchar(255) NOT NULL,
+  `f_con` varchar(255) DEFAULT NULL,
+  `comment` varchar(255) DEFAULT NULL,
+  `date_of_update` varchar(255) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `facility_status`
+--
+
+INSERT INTO `facility_status` (`id`, `f_no`, `problem_id`, `f_con`, `comment`, `date_of_update`) VALUES
+(1, 'nada', '', 'broken', 'ujinga', '2/2/22016]'),
+(2, '3', '', '0', 'savwsvavdwdv', 'fbdb'),
+(3, '3', '', '0', 'ascasc', 'dfbdfb'),
+(4, '3', '', '0', 'ascascas', '07-02-2016'),
+(5, '3', '', '1', 'ascascasc', '07-02-2016'),
+(6, '3', ' 3', '0', 'hhhhhhhhhhhhhhhhhhhhhhhh', '14-02-2016'),
+(7, '3', ' 3', '0', 'ggggggggggggggggggggggg', '14-02-2016'),
+(8, '3', ' 3', '1', 'beberb', '14-02-2016'),
+(9, '3', ' 3', '0', 'ascsaacasc55555', '14-02-2016'),
+(10, '3', ' 3', '1', 'qdqwdqwdqwdqwd55', '14-02-2016'),
+(11, '3', ' 3', '1', 'Because of alot of problems itwill not work', '14-02-2016'),
+(12, '3', ' 3', '1', 'Sollicitudin nullam tempora. Rutrum minus excepturi? Necessitatibus dolores tristique, dis consectetuer natoque. Laboriosam penatibus eleifend laudantium convallis quod. Ante qui.', '14-02-2016'),
+(13, '2', ' 2', '1', 'i AM HAPPY', '14-02-2016'),
+(14, '1', ' 1', '0', 'DSSVSFD', '14-02-2016'),
+(15, '2', ' 2', '0', 'CASCASC', '14-02-2016'),
+(16, '1', ' 1', '1', 'CASCACA', '14-02-2016'),
+(17, '1', ' 1', '0', 'ACVAVASV', '14-02-2016');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `facility_type`
+--
+
+CREATE TABLE `facility_type` (
+  `id` int(11) NOT NULL,
+  `facil_type` varchar(255) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `facility_type`
+--
+
+INSERT INTO `facility_type` (`id`, `facil_type`) VALUES
+(1, 'type 1'),
+(2, 'type 2');
 
 -- --------------------------------------------------------
 
@@ -316,30 +368,47 @@ INSERT INTO `regions` (`id`, `region`) VALUES
 --
 
 CREATE TABLE `sms` (
+  `id` int(11) NOT NULL,
   `facility_name` varchar(100) NOT NULL,
   `facility_number` varchar(100) NOT NULL,
   `problems` text NOT NULL,
-  `com_name` varchar(100) NOT NULL
+  `com_name` varchar(100) NOT NULL,
+  `status` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `sms`
 --
 
-INSERT INTO `sms` (`facility_name`, `facility_number`, `problems`, `com_name`) VALUES
-('uvugvu', '234', 'eedcd', 'cdd'),
-('jobo', '345', 'generator', 'jojo'),
-('isusu', '364', 'loose tape on resevoire ', 'isususmo'),
-('Kilosa', '432', 'Pump breakdown', 'Kilosawote'),
-('sengasenga', '472', 'windmill breakdown', 'susumo'),
-('Koko', '567', 'pump breakdown', 'Yombo'),
-('Gika', '598', 'breakdown', 'watuuu'),
-('bombambili', '619', 'leakage', 'kisarawe'),
-('Ilala', '654', 'there is malfunction of pipes', 'Temeke'),
-('Talu', '764', 'thfhhjb', 'jkhg'),
-('tarime', '789', 'reservoure', 'Pugu'),
-('chanikawatu', '839', 'generator switch', 'gugo'),
-('Kivule', '987', 'Pump', 'ralu');
+INSERT INTO `sms` (`id`, `facility_name`, `facility_number`, `problems`, `com_name`, `status`) VALUES
+(1, 'uvugvu', '1', 'eedcd', 'cdd', 0),
+(2, 'jobo', '2', 'generator', 'jojo', 0),
+(3, 'isusu', '3', 'loose tape on resevoire ', 'isususmo', 0);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `source`
+--
+
+CREATE TABLE `source` (
+  `id` int(11) NOT NULL,
+  `src` varchar(255) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `source`
+--
+
+INSERT INTO `source` (`id`, `src`) VALUES
+(1, 'river'),
+(2, 'Lake'),
+(3, 'shallow well'),
+(4, 'spring'),
+(5, 'dam'),
+(6, 'borehole'),
+(7, 'rainwater harvesting'),
+(8, 'other');
 
 -- --------------------------------------------------------
 
@@ -5562,6 +5631,18 @@ ALTER TABLE `facilities`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indexes for table `facility_status`
+--
+ALTER TABLE `facility_status`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `facility_type`
+--
+ALTER TABLE `facility_type`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indexes for table `food`
 --
 ALTER TABLE `food`
@@ -5589,7 +5670,13 @@ ALTER TABLE `regions`
 -- Indexes for table `sms`
 --
 ALTER TABLE `sms`
-  ADD PRIMARY KEY (`facility_number`);
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `source`
+--
+ALTER TABLE `source`
+  ADD PRIMARY KEY (`id`);
 
 --
 -- Indexes for table `wards`
@@ -5616,7 +5703,17 @@ ALTER TABLE `city`
 -- AUTO_INCREMENT for table `facilities`
 --
 ALTER TABLE `facilities`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+--
+-- AUTO_INCREMENT for table `facility_status`
+--
+ALTER TABLE `facility_status`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
+--
+-- AUTO_INCREMENT for table `facility_type`
+--
+ALTER TABLE `facility_type`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 --
 -- AUTO_INCREMENT for table `food`
 --
@@ -5637,6 +5734,16 @@ ALTER TABLE `lgas`
 --
 ALTER TABLE `regions`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=23;
+--
+-- AUTO_INCREMENT for table `sms`
+--
+ALTER TABLE `sms`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+--
+-- AUTO_INCREMENT for table `source`
+--
+ALTER TABLE `source`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 --
 -- AUTO_INCREMENT for table `wards`
 --
