@@ -3,9 +3,9 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Feb 22, 2016 at 01:17 PM
--- Server version: 10.1.9-MariaDB
--- PHP Version: 5.6.15
+-- Generation Time: Jul 14, 2016 at 04:03 PM
+-- Server version: 10.1.10-MariaDB
+-- PHP Version: 7.0.3
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
@@ -37,11 +37,12 @@ CREATE TABLE `labels` (
 
 INSERT INTO `labels` (`id`, `label_name`) VALUES
 (1, 'nairobi'),
-(2, 'nitale'),
-(3, 'westlands'),
+(3, 'westland'),
 (4, 'karen'),
-(5, 'cars'),
-(6, 'tanzania');
+(6, 'tanzanias'),
+(8, 'Family'),
+(9, 'dddd'),
+(10, 'Friends');
 
 -- --------------------------------------------------------
 
@@ -60,9 +61,11 @@ CREATE TABLE `people_group` (
 --
 
 INSERT INTO `people_group` (`id`, `person_id`, `group_name`) VALUES
-(1, '2', 'karen'),
-(2, '1', 'karen'),
-(3, '3', 'karen');
+(1, '5', '8'),
+(2, '4', '8'),
+(3, '6', '8'),
+(4, '7', '10'),
+(5, '5', '10');
 
 -- --------------------------------------------------------
 
@@ -84,9 +87,10 @@ CREATE TABLE `personal` (
 --
 
 INSERT INTO `personal` (`id_personal`, `name`, `gender`, `telp`, `idnumber`, `label`) VALUES
-(1, 'Victor', 'Male', '+254725813847', '34444', ''),
-(2, 'victor 2', 'Male', '+254773648008', '66757', ''),
-(3, 'victor 3', 'Male', '+254774429248', 'wewewe', '');
+(4, 'Bryan - bro', 'Male', '+254725720658', 'xxxxxx', ''),
+(5, 'Victor -kenya', 'Male', '+254791604418', 'ddddddd', ''),
+(6, 'Fatihi', 'Male', '+254725813847', 'yyyyyyyy', ''),
+(7, 'Sam', 'Female', '+254725498453', '5678iuhgfgh', '');
 
 -- --------------------------------------------------------
 
@@ -111,7 +115,23 @@ INSERT INTO `sentsms` (`id`, `phone`, `smstext`, `draft`) VALUES
 (3, '+254774429248', 'test2', 0),
 (4, '+254773648008', 'sacascasc', 0),
 (5, '+254725813847', 'sacascasc', 0),
-(6, '+254774429248', 'sacascasc', 0);
+(6, '+254774429248', 'sacascasc', 0),
+(7, '', '', 1),
+(10, '', '', 1),
+(11, '+254725720658', 'This is the government. We see you. 0_0', 0),
+(12, '+254791604418', 'This is the government. We see you. 0_0', 0),
+(13, '+254725720658', 'bla bla bla', 0),
+(14, '+254791604418', 'bla bla bla', 0),
+(15, '+254725720658', 'dbhdfnn', 0),
+(16, '+254791604418', 'dbhdfnn', 0),
+(17, '+254791604418', 'This is the government. We are still watching you.', 0),
+(18, '+254725720658', 'This is the government. We are still watching you.', 0),
+(19, '+254725813847', 'This is the government. We are still watching you.', 0),
+(20, '+254791604418', 'Gov', 0),
+(21, '+254725720658', 'Gov', 0),
+(22, '+254725813847', 'Gov', 0),
+(23, '+254725498453', 'Hello. This is the Government. We see you.', 0),
+(24, '+254791604418', 'Hello. This is the Government. We see you.', 0);
 
 -- --------------------------------------------------------
 
@@ -173,22 +193,22 @@ ALTER TABLE `user`
 -- AUTO_INCREMENT for table `labels`
 --
 ALTER TABLE `labels`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 --
 -- AUTO_INCREMENT for table `people_group`
 --
 ALTER TABLE `people_group`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 --
 -- AUTO_INCREMENT for table `personal`
 --
 ALTER TABLE `personal`
-  MODIFY `id_personal` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id_personal` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 --
 -- AUTO_INCREMENT for table `sentsms`
 --
 ALTER TABLE `sentsms`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=25;
 --
 -- AUTO_INCREMENT for table `user`
 --
